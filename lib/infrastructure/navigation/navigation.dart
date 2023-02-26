@@ -45,8 +45,8 @@ class Nav {
       GoRoute(
         path: Routes.SECOND_PAGE,
         builder: (context, state) {
-          // SecondPageControllerBinding().dependencies();
-          // printState<SecondPageController>(state);
+          SecondPageControllerBinding().dependencies();
+          printState<SecondPageController>(state);
           return const SecondPageScreen();
         },
       ),

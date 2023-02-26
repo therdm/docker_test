@@ -7,39 +7,33 @@ import 'package:go_router/go_router.dart';
 
 import 'controllers/second_page.controller.dart';
 
-class SecondPageScreen extends StatelessWidget {
+class SecondPageScreen extends GetView<SecondPageController> {
   const SecondPageScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
-    return GetBuilder<SecondPageController>(
-      init: SecondPageController(),
-      builder: (controller) {
-        return Scaffold(
-          appBar: AppBar(
-            title: const Text('SecondPageScreen'),
-            centerTitle: true,
-          ),
-          body: Center(
-            child: Column(
-              children: [
-                Text(
-                  '${controller.count.value} SecondScreen is working',
-                  style: TextStyle(fontSize: 20),
-                ),
-                SizedBox(height: 24),
-                ElevatedButton(
-                  onPressed: () {
-                    context.go(Routes.THIRD_PAGE);
-                  },
-                  child: Text('Go to next page'),
-                ),
-              ],
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('SecondPageScreen'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child: Column(
+          children: [
+            Text(
+              '${controller.count.value} SecondScreen is working',
+              style: TextStyle(fontSize: 20),
             ),
-          ),
-        );
-      }
+            SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: () {
+                context.go(Routes.THIRD_PAGE);
+              },
+              child: Text('Go to next page'),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -54,11 +48,6 @@ abstract class LazyView<T> extends StatelessWidget {
   @override
   Widget build(BuildContext context);
 }
-
-
-
-
-
 
 // class LazyView<T> extends StatelessWidget {
 //   const LazyView({Key? key, this.onWillPop, required this.child}) : super(key: key);
